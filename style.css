@@ -5,11 +5,11 @@
 	width: 90vw;
 }
 
-.monitor
+.outputArea
 {
 	width:85vw;
 }
-#outputArea
+#monitor
 {
 	height: 70vh;
 	width:100%;
@@ -29,7 +29,7 @@
 	height: 36px;
 	font-size: 16px;
 }
-#sendInput
+#sendBox
 {
 	flex:10;
 	height:30px;

@@ -6,37 +6,41 @@ async function connect() {
         await port.open({
             baudRate: 9600
         });
+
         document.getElementById('PortStatus').value = "Connected";
+
         while (port.readable) {
             const reader = port.readable.getReader();
             try {
                 while (true) {
                     const {value, done} = await reader.read();
                     if (done) {
-                        addSerial("Canceled\n");
+                        add_message("Canceled\n");
                         break;
                     }
                     const inputValue = new TextDecoder().decode(value);
-                    addSerial(inputValue);
+                    add_message(inputValue);
                 }
             } catch (error) {
-                addSerial("Error: Read" + error + "\n");
+                add_message("[Error] Read" + error + "\n");
             } finally {
                 reader.releaseLock();
             }
         }
     } catch (error) {
-        addSerial("Error: Open" + error + "\n");
+        add_message("[Error]Open" + error + "\n");
     }
 }
-function addSerial(msg) {
-    let textarea = document.getElementById('outputArea');
-    textarea.value += msg;
-    textarea.schrollTop = textarea.scrollHeight;
+
+function add_message(message) {
+    let monitor = document.getElementById('monitor');
+    monitor.value += message;
+    monitor.schrollTop = monitor.scrollHeight;
 }
+
 async function send() {
-    var text = document.getElementById('sendInput').value;
-    document.getElementById('sendInput').value = "";
+    let text = document.getElementById('sendBox').value;
+    document.getElementById('sendBox').value = "";
     const encoder = new TextEncoder();
     const writer = port.writable.getWriter();
     await writer.write(encoder.encode(text + "\n"));
