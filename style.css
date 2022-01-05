@@ -1,0 +1,67 @@
+.container
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 90vw;
+}
+
+.monitor
+{
+	width:85vw;
+}
+#outputArea
+{
+	height: 70vh;
+	width:100%;
+}
+
+.sendArea
+{
+	display:flex;
+	margin-top:10px;
+	width:85vw;
+	text-align:right;
+}
+.sendbutton
+{
+	flex:1;
+	margin-left:10px;
+	height: 36px;
+	font-size: 16px;
+}
+#sendInput
+{
+	flex:10;
+	height:30px;
+	font-size:16px;
+	will-change: transform;
+}
+
+.setting
+{
+	display:flex;
+	margin-top: 10px;
+	font-size: 16px;
+	width: 85vw;
+}
+.setting button
+{
+	flex:1;
+	font-size: 16px;
+	height: 30px;
+}
+#PortStatus
+{
+	flex:1;
+	border: none;
+	outline: none;
+	caret-color: transparent; 
+	color:black;
+	width: 110px;
+	font-size: 16px;
+}
+
+.space
+{
+	flex:10;
+}
